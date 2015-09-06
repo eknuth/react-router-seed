@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+
 export default class App extends Component {
   render() {
     return (
@@ -7,7 +8,7 @@ export default class App extends Component {
         <h1>App</h1>
         {/* change the <a>s to <Links>s */}
         <ul>
-          <li><Link to="/about">About</Link></li>
+          <li><Link to="/trees">Trees</Link></li>
           <li><Link to="/inbox">Inbox</Link></li>
         </ul>
 
