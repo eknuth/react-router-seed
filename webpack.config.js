@@ -23,6 +23,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
+      exclude: /(node_modules|bower_components)/,
       include: path.join(__dirname, 'src')
     }]
   }

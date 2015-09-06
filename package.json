@@ -5,7 +5,9 @@
   "repository": "https://github.com/eknuth/react-router-seed",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "npm install & eslint ./src",
+    "test": "karma start --single-run",
+    "karma": "karma start",
     "prestart": "npm install",
     "start": "node server.js",
     "lint": "eslint ./src"
