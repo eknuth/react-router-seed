@@ -25,6 +25,7 @@ module.exports = {
       loaders: ['react-hot', 'babel'],
       exclude: /(node_modules|bower_components)/,
       include: path.join(__dirname, 'src')
-    }]
+    },
+    { test: /\.css$/, loader: "style-loader!css-loader" }]
   }
 };

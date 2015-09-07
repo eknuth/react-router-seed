@@ -5,6 +5,8 @@ require('es6-object-assign').polyfill();
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
+require('bootstrap-grid/grid.min.css')
+
 import Routes from './Routes'
 import store from './store'
 
