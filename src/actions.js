@@ -1,11 +1,5 @@
-export const FETCH_TREES = 'FETCH_TREES'
+export const ASYNC_FETCH_TREES = 'ASYNC_FETCH_TREES'
 export const RECEIVE_TREES = 'RECEIVE_TREES'
-
-export function fetchTrees () {
-  return {
-    type: FETCH_TREES
-  }
-}
 
 export function receiveTrees (results) {
   console.log('action ', results)
@@ -13,4 +7,12 @@ export function receiveTrees (results) {
     type: RECEIVE_TREES,
     payload: results
   }
+}
+
+export function asyncFetchTrees() {
+  return dispatch => {
+    return fetch('/api/trees_with_neighborhood.json')
+      .then(req => req.json())
+      .then(geojson => dispatch(receiveTrees(geojson)));
+  };
 }

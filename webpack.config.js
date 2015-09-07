@@ -14,7 +14,7 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-   extensions: ['', '.js', '.json', '.jsx']
+   extensions: ['', '.js', '.json', '.jsx', '.geojson']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()

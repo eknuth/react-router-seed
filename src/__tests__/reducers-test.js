@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { treesReducer } from '../reducers'
-import { FETCH_TREES, RECEIVE_TREES } from '../actions'
+import { ASYNC_FETCH_TREES, RECEIVE_TREES } from '../actions'
 
 describe('tree reducer', () => {
   it('should have an initial state', () => {
@@ -12,20 +12,24 @@ describe('tree reducer', () => {
   })
   it('should start fetching trees', () => {
     expect(
-      treesReducer(undefined, {type: FETCH_TREES})
+      treesReducer(undefined, {type: ASYNC_FETCH_TREES})
     ).to.deep.equal({
       isFetchingTrees: true,
       trees: []
     })
   })
   it('should receive trees', () => {
+    let treesJSON = {
+      features: [],
+      type: "FeatureCollection"
+    }
     expect(
       treesReducer(undefined, {
         type: RECEIVE_TREES,
-        payload: ['tree1', 'tree2']
+        payload: treesJSON
       })
     ).to.deep.equal({
-      trees: ['tree1', 'tree2'],
+      trees: treesJSON,
       isFetchingTrees: false
     })
   })

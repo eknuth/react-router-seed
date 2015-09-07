@@ -5,7 +5,7 @@
   "repository": "https://github.com/eknuth/react-router-seed",
   "main": "index.js",
   "scripts": {
-    "pretest": "npm install & eslint ./src",
+    "pretest": "npm install && eslint ./src",
     "test": "karma start --single-run",
     "karma": "karma start",
     "prestart": "npm install",
@@ -15,6 +15,8 @@
   "author": "Edwin Knuth <eknuth@gmail.com> (http://iknuth.com.com)",
   "license": "MIT",
   "dependencies": {
+    "es6-promise": "3.0.2",
+    "isomorphic-fetch": "2.1.1",
     "react": "0.13.3",
     "react-redux": "2.1.0",
     "react-router": "1.0.0-beta3",

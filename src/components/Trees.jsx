@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchTrees, receiveTrees } from '../actions'
+import { receiveTrees, asyncFetchTrees } from '../actions'
 
 class Trees extends Component {
   componentDidMount () {
-    this.props.dispatch(receiveTrees(['tree1', 'tree2']))
+    this.props.dispatch(asyncFetchTrees())
   }
   render () {
     const { trees } = this.props
@@ -13,8 +13,8 @@ class Trees extends Component {
         <div>
           <h2>Trees</h2>
           <ul>
-            {trees.map((tree,i) => {
-              return <li key={i}>{tree}</li>
+            {(trees || []).map((tree,i) => {
+              return <li key={i}>{tree.properties.common_nam}</li>
             })}
           </ul>
         </div>
@@ -31,7 +31,7 @@ Trees.propTypes = {
 function select(state) {
   console.log('select state', state)
   return {
-    trees: state.trees,
+    trees: state.trees.features,
     isFetchingTrees: state.isFetchingTrees
   };
 }
