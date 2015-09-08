@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { receiveTrees, asyncFetchTrees } from '../actions'
+import DonutChart from './DonutChart'
 
 class Trees extends Component {
   componentDidMount () {

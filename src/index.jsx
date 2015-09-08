@@ -5,9 +5,9 @@ require('es6-object-assign').polyfill();
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-require('bootstrap-grid/grid.min.css')
+require('../assets/css/dash.css')
 
 import Routes from './Routes'
 import store from './store'
 
-React.render(<Routes />, document.body);
+React.render(<Routes />, document.getElementById('root-container'));

@@ -2,7 +2,6 @@ export const ASYNC_FETCH_TREES = 'ASYNC_FETCH_TREES'
 export const RECEIVE_TREES = 'RECEIVE_TREES'
 
 export function receiveTrees (results) {
-  console.log('action ', results)
   return {
     type: RECEIVE_TREES,
     payload: results

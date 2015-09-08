@@ -8,6 +8,7 @@ import Trees from './components/Trees'
 import Inbox from './components/Inbox'
 import store from './store'
 
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 history.addChangeListener(() => {
   console.log('location change', arguments)
@@ -25,9 +26,14 @@ const routes = {
 export default class Routes extends Component {
   render () {
       return (
-          <Provider store={store}>
-            {() =>  <Router history={history} children={routes}></Router> }
-          </Provider>
+          <div>
+            <Provider store={store}>
+              {() =>  <Router history={history} children={routes}></Router> }
+            </Provider>
+            <DebugPanel top right bottom>
+              <DevTools store={store} monitor={LogMonitor} />
+            </DebugPanel>
+          </div>
       )
   }
 }
