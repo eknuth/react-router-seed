@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
-import { history } from 'react-router/lib/HashHistory';
+
 import { Provider } from 'react-redux';
 
 import App from './containers/App'
@@ -10,16 +10,13 @@ import store from './store'
 
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-history.addChangeListener(() => {
-  console.log('location change', arguments)
-});
-
 const routes = {
   path: '/',
   component: App,
   childRoutes: [
-    { path: 'trees', component: Trees },
-    { path: 'inbox', component: Inbox },
+    { path: '/trees', component: Trees },
+    { path: '/trees/?:tree', component: Trees },
+    { path: '/inbox', component: Inbox },
   ]
 };
 
@@ -28,7 +25,7 @@ export default class Routes extends Component {
       return (
           <div>
             <Provider store={store}>
-              {() =>  <Router history={history} children={routes}></Router> }
+              {() =>  <Router children={routes}></Router> }
             </Provider>
             <DebugPanel top right bottom>
               <DevTools store={store} monitor={LogMonitor} />
